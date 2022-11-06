@@ -1,9 +1,0 @@
-
-e
-java:S1104"OMake age a static final constant or non-public and provide accessors if needed.(×Áò¿
-l
-java:S1104"QMake alive a static final constant or non-public and provide accessors if needed.(¤ğÛäşÿÿÿÿ
-f
-java:S1104"PMake name a static final constant or non-public and provide accessors if needed.( şÍ¾
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ç†Ğµÿÿÿÿÿ
-M	java:S106"9Replace this use of System.out or System.err by a logger.(ÿš8
