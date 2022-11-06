@@ -3,7 +3,7 @@ package Lab4_1._6;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] arg) {
         Scanner in = new Scanner(System.in);
         System.out.print("Введите длину массива: ");
         int i = in.nextInt();

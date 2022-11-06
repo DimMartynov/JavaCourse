@@ -4,7 +4,7 @@ class Main {
     public static void main(String[] args) {
         Study a = new Study();
         a.setCourse("Изучение Java - это просто!");
-        System.out.println(a.printCourse());
+        a.printCourse();
 
         Product b = new Product();
         b.setName("car");

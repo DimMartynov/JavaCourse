@@ -3,7 +3,7 @@ package Lab4_2._5;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] arg) {
         Scanner in = new Scanner(System.in);
         System.out.print("Type array size: ");
         int i = in.nextInt();

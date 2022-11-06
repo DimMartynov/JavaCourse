@@ -3,7 +3,7 @@ package Lab4_2._4;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] arg) {
         Scanner in = new Scanner(System.in);
         System.out.print("Array length: ");
         int i = in.nextInt();

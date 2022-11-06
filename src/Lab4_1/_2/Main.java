@@ -1,7 +1,7 @@
 package Lab4_1._2;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] arg) {
         int i = 1;
         while (i<100) {
             if (i%3==0) {
