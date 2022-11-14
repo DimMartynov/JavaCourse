@@ -8,6 +8,7 @@ public class Main {
         String str = in.nextLine();
         String substr = in.nextLine();
         Counter a = new Counter();
-        a.incount(str,substr);
+        System.out.println(a.incount(str,substr));
     }
 }
+

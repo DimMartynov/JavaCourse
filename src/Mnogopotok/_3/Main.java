@@ -9,7 +9,9 @@ public class Main {
                 }
             });
             thread.start();
-            thread.join();
+//           thread.yield(); //таким образом не добиваемся значения 100000
+//            thread.interrupt(); //значение 100000 также не достигается
+            thread.join(); //значение всегда будет 100000
         }
         System.out.println("result: " + Counter.getCount());
     }

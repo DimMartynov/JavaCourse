@@ -7,6 +7,7 @@ public class Main {
         Scanner in = new Scanner(System.in);
         String str = in.nextLine();
         Censor a = new Censor();
-        a.cens(str);
+        str = a.cens(str);
+        System.out.println(str);
     }
 }

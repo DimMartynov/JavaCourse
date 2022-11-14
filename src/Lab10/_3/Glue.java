@@ -10,91 +10,68 @@ import java.util.regex.Pattern;
 
 public class Glue {
 
-    public void read(String file) throws Exception {
-        File f = new File(file);
-        if (!f.exists()) {
-            System.out.println("no such file, creating a new one...");
-            f.createNewFile();
-        }
-
-        FileReader fr = new FileReader(file);
-        Scanner scan = new Scanner(fr);
-
+    public ArrayList<String> read(String file) throws Exception {
         ArrayList<String> list = new ArrayList<>();
+        FileReader fr = null;
+        try {
+            fr = new FileReader(file);
 
-        while (scan.hasNextLine()) {
-            list.add(scan.nextLine());
+        } catch (java.io.FileNotFoundException e) {
+            System.out.println("no such file, creating a new one...");
+            new File(file).createNewFile();
+            fr = new FileReader(file);
+
+        } finally {
+            Scanner scan = new Scanner(fr);
+            while (scan.hasNextLine()) {
+                list.add(scan.nextLine());
+            }
         }
-        fr.close();
 
-        System.out.println(list);
+        fr.close();
+        return list;
     }
 
     public void write(String file, String text) throws Exception {
-        File f = new File(file);
-        if (!f.exists()) {
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(file);
+        } catch (java.io.FileNotFoundException e) {
             System.out.println("no such file, creating a new one...");
-            f.createNewFile();
+            new File(file).createNewFile();
+            fw = new FileWriter(file);
+        } finally {
+            fw.write(text);
         }
-
-        FileWriter fw = new FileWriter(file);
-        fw.write(text);
         fw.close();
     }
     public void writeln(String file, String text) throws Exception {
-        File f = new File(file);
-        if (!f.exists()) {
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(file, true);
+        } catch (java.io.FileNotFoundException e) {
             System.out.println("no such file, creating a new one...");
-            f.createNewFile();
+            new File(file).createNewFile();
+            fw = new FileWriter(file, true);
+        } finally {
+            fw.append(text);
+            fw.append("\n");
         }
-
-        FileWriter fw = new FileWriter(file, true);
-        fw.append(text);
-        fw.append("\n");
         fw.close();
     }
 
     public void stick(String file1, String file2) throws Exception{
-        File f2 = new File(file2);
-        if (!f2.exists()) {
-            System.out.println("no such file, creating a new one...");
-            f2.createNewFile();
-        }
-
-        FileReader fr = new FileReader(file2);
-        Scanner scan = new Scanner(fr);
-
-        ArrayList<String> list = new ArrayList<>();
-
-        while (scan.hasNextLine()) {
-            list.add(scan.nextLine());
-        }
-        fr.close();
-
         Glue g = new Glue();
+        ArrayList<String> list = new ArrayList<>(g.read(file2));
         for (String s : list) {
             g.writeln(file1, s);
         }
     }
 
     public void cens(String file) throws Exception {
-        File f = new File(file);
-        if (!f.exists()) {
-            System.out.println("no such file, creating a new one...");
-            f.createNewFile();
-        }
-
-        FileReader fr = new FileReader(file);
-        Scanner scan = new Scanner(fr);
-
-        ArrayList<String> list = new ArrayList<>();
-
-        while (scan.hasNextLine()) {
-            list.add(scan.nextLine());
-        }
-        fr.close();
-
         Glue g = new Glue();
+        ArrayList<String> list = new ArrayList<>(g.read(file));
+
         String reg = "[^\\w ]";
 
         Pattern pattern = Pattern.compile("\\W");

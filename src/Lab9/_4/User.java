@@ -1,5 +1,7 @@
 package Lab9._4;
 
+import java.util.Scanner;
+
 public class User {
 
     private String name;

@@ -1,19 +1,17 @@
 package Lab6._5;
 
-import java.time.Year;
-
 public class Primary {
-    String name;
-    public int age(int year) {
-        int age = Year.now().getValue() - year;
-        return age;
+    String name = "asd";
+    int age;
+    public void setAge(int y) {
+        this.age = y;
     }
 
-    public String getName(String name) {
-        return this.name;
+    public void setName(String z) {
+        this.name = z;
     }
 
-    public Primary() {
-        this.name = "noname";
+    public String getAge() {
+        return ""+ age;
     }
 }

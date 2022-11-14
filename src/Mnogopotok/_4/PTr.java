@@ -10,10 +10,10 @@ class PTr extends Thread {
     @Override
     public void run() {
         while (true) {
+            count += 1;
+            if (count>10) {return;}
             synchronized (lock) {
                 try {
-                    count += 1;
-                    if (count>1000) {return;}
                     System.out.println(getName());
                     lock.notify();
                     lock.wait();

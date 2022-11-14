@@ -5,7 +5,6 @@ public class Main {
         Th2 th2 = new Th2();
         System.out.println("status: " + th2.getState());
         th2.start();
-        System.out.println("status: " + th2.getState());
         th2.work();
         System.out.println("status: " + th2.getState());
     }

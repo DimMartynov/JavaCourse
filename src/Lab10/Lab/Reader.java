@@ -6,23 +6,25 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Reader {
-    public void read(String file) throws Exception {
-        File f = new File(file);
-        if (!f.exists()) {
-            System.out.println("no such file, creating a new one...");
-            f.createNewFile();
-        }
-
-        FileReader fr = new FileReader(file);
-        Scanner scan = new Scanner(fr);
-
+    public ArrayList<String> read(String file) throws Exception {
         ArrayList<String> list = new ArrayList<>();
+        FileReader fr = null;
+        try {
+            fr = new FileReader(file);
 
-        while (scan.hasNextLine()) {
-            list.add(scan.nextLine());
+        } catch (java.io.FileNotFoundException e) {
+            System.out.println("no such file, creating a new one...");
+            new File(file).createNewFile();
+            fr = new FileReader(file);
+
+        } finally {
+            Scanner scan = new Scanner(fr);
+            while (scan.hasNextLine()) {
+                list.add(scan.nextLine());
+            }
         }
-        fr.close();
 
-        System.out.println(list);
+        fr.close();
+        return list;
     }
 }
